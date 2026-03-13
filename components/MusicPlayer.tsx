@@ -44,27 +44,34 @@ export function MusicPlayer() {
         const audio = audioRef.current;
         if (!audio) return;
 
-        // Autoplay attempt
+        // Try to play immediately (might be blocked by browser)
         const tryPlay = async () => {
             try {
-                await audio.play();
-                setIsPlaying(true);
+                if (audio.paused) {
+                    await audio.play();
+                    setIsPlaying(true);
+                }
             } catch (error) {
                 console.log("Autoplay prevented:", error);
                 setIsPlaying(false);
             }
         };
 
+        // Attempt autoplay on mount
         tryPlay();
 
-        const handleGlobalClick = () => {
-            if (audioRef.current?.paused && audioRef.current?.readyState >= 2 && !isPlaying) {
+        // Fallback: listen for ANY user interaction to start playing
+        const handleInteraction = () => {
+            if (audioRef.current?.paused && !isPlaying) {
                 tryPlay();
             }
         };
 
-        document.addEventListener('click', handleGlobalClick, { once: true });
-        document.addEventListener('touchstart', handleGlobalClick, { once: true });
+        // Listen to variety of events to capture first interaction
+        const events = ['click', 'touchstart', 'scroll', 'keydown', 'mousemove'];
+        events.forEach(event => {
+            document.addEventListener(event, handleInteraction, { once: true });
+        });
 
         const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
 
@@ -93,8 +100,9 @@ export function MusicPlayer() {
             audio.removeEventListener('durationchange', handleDurationChange);
             audio.removeEventListener('loadedmetadata', handleDurationChange);
             audio.removeEventListener('ended', handleEnded);
-            document.removeEventListener('click', handleGlobalClick);
-            document.removeEventListener('touchstart', handleGlobalClick);
+            events.forEach(event => {
+                document.removeEventListener(event, handleInteraction);
+            });
         };
     }, []);
 
@@ -227,6 +235,7 @@ export function MusicPlayer() {
                 ref={audioRef}
                 src="/assets/Wedding - Muhammad Al Muqit.mp3"
                 loop
+                autoPlay
             />
 
             <div className={styles.card}>
