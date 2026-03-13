@@ -40,8 +40,8 @@ const zain = Zain({
 });
 
 export const metadata = {
-  title: "Binyamin & Nasla - Nikah Ceremony",
-  description: "Save the date for the Nikah ceremony of Binyamin Azhari & Nasla Wafiyya.",
+  title: "Fouziya & Azween - Nikah Ceremony",
+  description: "Save the date for the Nikah ceremony of Fouziya & Azween.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -53,8 +53,8 @@ export function WebReminder() {
         }
 
         if (perm === 'granted') {
-            // Event: Dec 26, 2025 11:00 AM
-            const eventDate = new Date('2025-12-26T11:00:00').getTime();
+            // Event: May 10, 2026 11:00 AM
+            const eventDate = new Date('2026-05-10T11:00:00').getTime();
             let reminderDate = eventDate;
 
             if (reminderTime === 'day_before') {
@@ -62,7 +62,7 @@ export function WebReminder() {
             } else if (reminderTime === 'week_before') {
                 reminderDate = eventDate - (7 * 24 * 60 * 60 * 1000); // 1 week before
             } else if (reminderTime === 'morning_of') {
-                reminderDate = new Date('2025-12-26T08:00:00').getTime(); // 8 AM on the day
+                reminderDate = new Date('2026-05-10T08:00:00').getTime(); // 8 AM on the day
             }
 
             localStorage.setItem('nikah_reminder', JSON.stringify({

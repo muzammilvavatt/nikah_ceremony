@@ -23,7 +23,7 @@ export function Countdown() {
         // I'll stick to Dec 26, 2025 11:00 AM.
 
         // Actually, to be safe, I'll use 2025.
-        const targetDate = new Date('2025-12-26T11:00:00');
+        const targetDate = new Date('2026-05-10T11:00:00');
 
         const interval = setInterval(() => {
             const now = new Date();

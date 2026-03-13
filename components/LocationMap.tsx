@@ -14,7 +14,7 @@ export function LocationMap() {
     // Let's use the standard "place" mode which is easier without an API Key for casual use, or just the search mode.
 
     // Attempting a cleaner embed search URL
-    const cleanMapSrc = `https://maps.google.com/maps?q=Oasis+Avenue,+Chirappalam,+Kadungallur&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+    const cleanMapSrc = `https://maps.google.com/maps?q=12.9543826,74.8184701&t=&z=15&ie=UTF8&iwloc=&output=embed`;
 
     return (
         <div style={{ width: '100%', marginTop: '30px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

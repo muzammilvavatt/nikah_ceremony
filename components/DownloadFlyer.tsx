@@ -25,7 +25,7 @@ export function DownloadFlyer() {
         setTimeout(() => {
             const link = document.createElement('a');
             link.href = '/assets/invitation.jpg';
-            link.download = 'Binyamin_Nasla_Nikah_Invite.jpg';
+            link.download = 'Fouziya_Azween_Nikah_Invite.jpg';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);

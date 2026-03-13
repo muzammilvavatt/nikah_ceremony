@@ -136,7 +136,7 @@ export default function Home() {
                 </div>
                 <AnimatedButton
                   text={t.getDirections}
-                  href="https://www.google.com/maps/search/?api=1&query=Oasis+Avenue,+Chirappalam,+Kadungallur"
+                  href="https://maps.app.goo.gl/H5p9FXYovPajjBPY8"
                   target="_blank"
                   rel="noopener noreferrer"
                   showArrows={false}

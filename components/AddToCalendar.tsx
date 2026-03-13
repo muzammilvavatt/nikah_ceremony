@@ -8,11 +8,11 @@ export function AddToCalendar() {
     const { t } = useLanguage();
 
     const event = {
-        title: "Binyamin & Nasla Nikah Ceremony",
+        title: "Fouziya & Azween Nikah Ceremony",
         details: "We want to share happiness with our loved ones. Come and celebrate our Nikah ceremony.",
-        location: "Oasis Avenue, Chirappalam, Kadungallur",
-        beginDate: "20251226T033000Z", // 09:00 AM IST is 03:30 AM UTC
-        endDate: "20251226T073000Z",   // Estimate 4 hours
+        location: "Oasis Avenue, Chirappalam, Kadungallur (https://maps.app.goo.gl/H5p9FXYovPajjBPY8)",
+        beginDate: "20260510T053000Z", // 11:00 AM IST is 05:30 AM UTC
+        endDate: "20260510T093000Z",   // Estimate 4 hours
     };
 
     const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&dates=${event.beginDate}/${event.endDate}&details=${encodeURIComponent(event.details)}&location=${encodeURIComponent(event.location)}&sf=true&output=xml`;
